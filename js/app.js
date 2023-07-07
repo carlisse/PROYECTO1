@@ -1,7 +1,8 @@
-//Evento para crear un nuevo libro
+//Evento para crear un nuevo libro//
+
 document.getElementById("formulario").addEventListener("submit", crear);
 
-//Funcion Crear
+//Funcion Crear//
 
 function crear(e){
     titulo = document.getElementById("titulo").value
@@ -26,15 +27,16 @@ function crear(e){
 
     leer();
     document.getElementById("formulario").reset();
+    console.log("Libro guardado correctamente")
     e.preventDefault()
 }
 
 
-//Funcion "leer"
+//Funcion leer//
 
 function leer(){
     let libros = JSON.parse(localStorage.getItem("Libros"));
-    document.getElementById("tbody").innerHTML =""
+    document.getElementById("tbody").innerHTML = ""
     for(let i=0; i < libros.length; i++){
         let titulo = libros[i].titulo
         let descripcion = libros[i].descripcion
@@ -56,13 +58,14 @@ function leer(){
     }
 }
 
-//funcion "Editar"
+//funcion "Editar"//
+
 function editar(titulo){
     let libros = JSON.parse(localStorage.getItem("Libros"));
-    for (let i=0; i<libros.length; i++){
+    for (let i=0; i < libros.length; i++){
         if(libros[i].titulo === titulo){
             document.getElementById("body").
-            innerHTML =`<div class="row">
+            innerHTML = `<div class="row">
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-header">
@@ -91,7 +94,7 @@ function editar(titulo){
     }
 }
 
-//Funcion actualizar
+//Funcion actualizar//
 function actualizar(i){
     let libros = JSON.parse(localStorage.getItem("Libros"));
     libros[i].titulo = document.getElementById("newtitulo").value;
@@ -102,10 +105,10 @@ function actualizar(i){
         vistaPrincipal()
 }
 
-//Funcion eliminar
+//Funcion eliminar//
 function eliminar(titulo){
     let libros = JSON.parse(localStorage.getItem("Libros"));
-    for(let i=0; i<libros.length; i++){
+    for(let i=0; i <libros.length; i++){
         if(libros[i].titulo === titulo){
             libros.splice(i,1);
         }
@@ -117,7 +120,8 @@ leer();
 
 }
 
-//Funcion para mostrar interfaz principal
+//Funcion para mostrar interfaz principal//
+
 function vistaPrincipal(){
     document.getElementById("body").innerHTML = `<div class="row">
     <div class="col-md-5">
