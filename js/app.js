@@ -26,7 +26,6 @@ function crear(e){
 
     leer();
     document.getElementById("formulario").reset();
-    console.log("Libro guardado correctamente")
     e.preventDefault()
 }
 
@@ -63,7 +62,7 @@ function editar(titulo){
     for (let i=0; i<libros.length; i++){
         if(libros[i].titulo === titulo){
             document.getElementById("body").
-            innerHTML =` <div class="row">
+            innerHTML =`<div class="row">
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-header">
@@ -104,7 +103,7 @@ function actualizar(i){
 }
 
 //Funcion eliminar
-function eliminar(tutulos){
+function eliminar(titulo){
     let libros = JSON.parse(localStorage.getItem("Libros"));
     for(let i=0; i<libros.length; i++){
         if(libros[i].titulo === titulo){
@@ -113,15 +112,14 @@ function eliminar(tutulos){
         
     }
 
-localStorage.getItem("Libros",JSON.stringify(libros));
+localStorage.getItem("Libros", JSON.stringify(libros));
 leer();   
 
 }
 
 //Funcion para mostrar interfaz principal
- function vistaPrincipal(){
-    document.getElementById("body").
-    innerHTML = ` <div class="row">
+function vistaPrincipal(){
+    document.getElementById("body").innerHTML = `<div class="row">
     <div class="col-md-5">
         <div class="card">
             <div class="card-header">
@@ -162,9 +160,11 @@ leer();
             </tbody>
           </table>
     </div>
-</div>
+</div>  
     `
 leer();
 }
 
 leer();
+
+
